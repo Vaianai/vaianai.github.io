@@ -15,6 +15,7 @@ header {
     padding: 20px 0;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .navbar {
@@ -24,6 +25,8 @@ header {
     padding: 10px 20px;
     border-radius: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
 }
 
 .navbar ul {
@@ -54,22 +57,15 @@ header {
     -webkit-text-fill-color: transparent;
 }
 
-.navbar ul li a.signup-btn {
-    background: linear-gradient(135deg, #00FF00, #004400);
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-
-.navbar ul li a.signup-btn:hover {
-    background: linear-gradient(135deg, #00CC00, #003300);
-}
-
 /* Hero Section Styles */
 #hero {
     color: #fff;
-    padding: 100px 0;
+    padding: 100px 20px;
     text-align: center;
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #hero .container {
@@ -115,7 +111,7 @@ header {
 
 /* Block Section Styles */
 #blocks {
-    padding: 60px 0;
+    padding: 60px 20px;
     text-align: center;
     animation: fadeIn 2s ease-in-out;
 }
@@ -139,12 +135,18 @@ header {
     transition: transform 0.3s, background-color 0.3s; /* Added background-color transition */
     cursor: pointer;
     border-radius: 15px; /* Rounded corners */
+    text-align: center; /* Center text */
 }
 
 .block a {
     color: #fff;
     text-decoration: none; /* Remove underline */
     font-weight: bold;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .block:hover {
@@ -158,6 +160,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
+    width: 100%;
 }
 
 /* Animations */
@@ -166,7 +169,41 @@ footer {
     to { opacity: 1; }
 }
 
-/* Custom Styles */
-.text-white {
-    color: #fff !important;
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    #hero h2 {
+        font-size: 2em;
+    }
+
+    #hero p {
+        font-size: 1em;
+    }
+
+    .block {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero h2 {
+        font-size: 1.5em;
+    }
+
+    #hero p {
+        font-size: 0.9em;
+    }
+
+    .block {
+        width: 100px;
+        height: 100px;
+    }
 }
