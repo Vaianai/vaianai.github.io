@@ -1,44 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blocks = document.querySelectorAll('.block');
+
     blocks.forEach(block => {
-        block.addEventListener('mouseenter', () => {
+        // Funzione per applicare l'effetto luminoso
+        const applyLightEffect = () => {
             block.style.transform = 'scale(1.1)';
-        });
-        block.addEventListener('mouseleave', () => {
+            block.style.filter = 'brightness(1.4)'; // Maggiore luminosità
+            block.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.7)'; // Effetto di luce
+        };
+
+        // Funzione per rimuovere l'effetto luminoso
+        const removeLightEffect = () => {
             block.style.transform = 'scale(1)';
-        });
-    });
-});
-document.addEventListener('DOMContentLoaded', () => {
-    const loginBtn = document.getElementById('login-btn');
-    const signupBtn = document.getElementById('signup-btn');
-    const loginPopup = document.getElementById('login-popup');
-    const signupPopup = document.getElementById('signup-popup');
-    const closeLogin = document.getElementById('close-login');
-    const closeSignup = document.getElementById('close-signup');
+            block.style.filter = 'brightness(1)'; // Luminosità normale
+            block.style.boxShadow = 'none'; // Rimuove l'effetto di luce
+        };
 
-    loginBtn.addEventListener('click', () => {
-        loginPopup.style.display = 'flex';
-    });
-
-    signupBtn.addEventListener('click', () => {
-        signupPopup.style.display = 'flex';
-    });
-
-    closeLogin.addEventListener('click', () => {
-        loginPopup.style.display = 'none';
-    });
-
-    closeSignup.addEventListener('click', () => {
-        signupPopup.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === loginPopup) {
-            loginPopup.style.display = 'none';
-        }
-        if (event.target === signupPopup) {
-            signupPopup.style.display = 'none';
-        }
+        // Aggiungi gli eventi di mouse enter e mouse leave
+        block.addEventListener('mouseenter', applyLightEffect);
+        block.addEventListener('mouseleave', removeLightEffect);
     });
 });

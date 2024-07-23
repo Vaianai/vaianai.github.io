@@ -15,7 +15,6 @@ header {
     padding: 20px 0;
     display: flex;
     justify-content: center;
-    width: 100%;
 }
 
 .navbar {
@@ -25,8 +24,6 @@ header {
     padding: 10px 20px;
     border-radius: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 1200px;
 }
 
 .navbar ul {
@@ -43,7 +40,7 @@ header {
 
 .navbar ul li a {
     color: #fff;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none;
     font-weight: bold;
     padding: 10px;
     transition: background-color 0.3s, color 0.3s;
@@ -55,6 +52,16 @@ header {
     background: linear-gradient(135deg, #00FF00, #004400);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.navbar ul li a.signup-btn {
+    background: linear-gradient(135deg, #00FF00, #004400);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.navbar ul li a.signup-btn:hover {
+    background: linear-gradient(135deg, #00CC00, #003300);
 }
 
 /* Hero Section Styles */
@@ -117,41 +124,43 @@ header {
 }
 
 .block-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonne */
+    grid-gap: 20px; /* Spazio tra le righe e le colonne */
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .block {
-    background-color: #004400;
-    color: #fff;
-    margin: 10px;
-    padding: 20px;
-    width: 150px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s, background-color 0.3s; /* Added background-color transition */
-    cursor: pointer;
-    border-radius: 15px; /* Rounded corners */
-    text-align: center; /* Center text */
-}
-
-.block a {
-    color: #fff;
-    text-decoration: none; /* Remove underline */
-    font-weight: bold;
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 150px; /* Altezza fissa per i blocchi */
+    background-size: contain; /* Adatta l'immagine al blocco senza distorsioni */
+    background-position: center; /* Centra l'immagine */
+    background-repeat: no-repeat; /* Evita che l'immagine si ripeta */
+    position: relative;
+    transition: transform 0.3s, filter 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    border-radius: 10px; /* Bordo arrotondato */
+    background-color: #004400; /* Colore di sfondo per i loghi */
 }
 
 .block:hover {
-    transform: scale(1.1);
-    background-color: #002200; /* Darker shade of black-green on hover */
+    transform: scale(1.05);
+    filter: brightness(1.4); /* Maggiore luminosità al passaggio del mouse */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Effetto di luce */
+}
+
+/* Maggiore dimensione per i loghi specifici */
+.block.coca-cola {
+    height: 180px; /* Altezza maggiorata per Coca Cola */
+}
+
+.block.mountain-dew {
+    height: 180px; /* Altezza maggiorata per Mountain Dew */
+}
+
+.block.pepsi {
+    height: 180px; /* Altezza maggiorata per Pepsi */
 }
 
 /* Footer Styles */
@@ -188,8 +197,13 @@ footer {
     }
 
     .block {
-        width: 120px;
-        height: 120px;
+        height: 120px; /* Riduci l'altezza per schermi più piccoli */
+    }
+
+    .block.coca-cola,
+    .block.mountain-dew,
+    .block.pepsi {
+        height: 140px; /* Altezza maggiore per i loghi specifici */
     }
 }
 
@@ -203,7 +217,12 @@ footer {
     }
 
     .block {
-        width: 100px;
-        height: 100px;
+        height: 100px; /* Riduci ulteriormente l'altezza per schermi più piccoli */
+    }
+
+    .block.coca-cola,
+    .block.mountain-dew,
+    .block.pepsi {
+        height: 120px; /* Altezza maggiore per i loghi specifici */
     }
 }

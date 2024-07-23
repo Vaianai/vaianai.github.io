@@ -1,0 +1,223 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #000000, #002200);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Impedisce la selezione del testo */
+body, h2, p, .popup-link, .close-btn {
+    user-select: none;
+    -webkit-user-select: none; /* Chrome, Safari, Opera */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+/* Impedisce la selezione e il trascinamento delle immagini */
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; /* Chrome, Safari, Opera */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+/* Header Styles */
+header {
+    background: transparent;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.navbar ul li a.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    background: linear-gradient(135deg, #00FF00, #004400);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar ul li a.signup-btn {
+    background: linear-gradient(135deg, #00FF00, #004400);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Collection Section Styles */
+#collections {
+    padding: 60px 0;
+    flex: 1;
+}
+
+#collections .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#collections h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ffffff; /* Testo bianco */
+    text-shadow:
+            1px 1px 0 #000000,
+            -1px -1px 0 #000000,
+            1px -1px 0 #000000,
+            -1px 1px 0 #000000; /* Contorno nero */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    justify-items: center;
+}
+
+.grid-item {
+    transition: background-color 0.3s ease;
+    border-radius: 10px; /* Angoli arrotondati */
+    text-align: center;
+    width: 150px; /* Stessa larghezza per tutti gli elementi */
+    height: 250px; /* Stessa altezza per tutti gli elementi */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.grid-item.selected {
+    background-color: #ccffcc; /* Verde chiaro */
+}
+
+.grid-item img {
+    max-height: 150px;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0 auto; /* Centra l'immagine */
+}
+
+.grid-item p {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    background: transparent; /* Rimuove lo sfondo bianco */
+    color: #ffffff; /* Testo bianco */
+    text-shadow:
+            1px 1px 0 #000,
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000; /* Contorno nero */
+}
+
+/* Popup Styles */
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #050505;
+    padding: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-width: 80%;
+    width: 500px;
+    border-radius: 8px;
+}
+
+.popup-content {
+    display: flex;
+    align-items: center;
+}
+
+.popup-left {
+    flex: 1;
+    text-align: center;
+}
+
+.popup-left img {
+    max-width: 100%;
+    height: auto;
+}
+
+.popup-right {
+    flex: 2;
+    padding-left: 20px;
+}
+
+.popup-right h3 {
+    color: #ffffff; /* Testo bianco */
+    text-shadow:
+            1px 1px 0 #000000,
+            -1px -1px 0 #000000,
+            1px -1px 0 #000000,
+            -1px 1px 0 #000000; /* Contorno nero */
+}
+
+.popup-link {
+    display: block;
+    margin: 10px 0;
+    text-decoration: none;
+    color: #004400;
+}
+
+.popup-link:hover {
+    text-decoration: underline;
+}
+
+.close-btn {
+    background-color: #004400;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.close-btn:hover {
+    background-color: #00FF00;
+}
+
+/* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
